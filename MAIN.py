@@ -32,13 +32,12 @@ COLAB.remove('A A Adesiyun')
 # return a data frame for all authors
 lst=[]
 for i in AUTH:
-    colab_search = np.column_stack([df_unstack[col].str.contains(i, na=False) for col in df_unstack])
+    colab_search = np.column_stack([df_unstack[col].str.contains(str(i), na=False) for col in df_unstack])
     df_colab_search = df_unstack.loc[colab_search.any(axis=1)]
     stack = df_colab_search.stack()
     COLAB = list(dict.fromkeys(stack['Full'].tolist()))
-    COLAB.remove(i)
-    lst.append(i)
-    lst.append(COLAB)
+    if i in COLAB:
+        COLAB.remove(i)
+    lst.append({'Author': i, 'collaborators':COLAB})
 df_COLAB=pd.DataFrame(lst,columns=['Author','collaborators'])
 print(df_COLAB)
-
