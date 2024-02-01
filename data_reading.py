@@ -9,6 +9,5 @@ import IPython.display as ipd
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-lep_author_data = pd.read_csv('../project-leptospirosis/authors.leptospirosis.csv')
-lep_article_data = pd.read_csv('../project-leptospirosis/articles.leptospirosis.csv')
 
+lep_author_data = pd.read_csv('C:\\Users\\admin\\Desktop\\group3\\Group 3\\authors.leptospirosis.csv')
